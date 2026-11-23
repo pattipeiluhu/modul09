@@ -1,0 +1,62 @@
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Bootstrap Icons
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.bg-purple {
+    background-color: #000000 !important;
+}
+
+.bg-purple-main {
+    background-color: #00a896 !important; /* Warna dasar hijau toska */
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pola garis/potongan miring di sisi kiri ala Kahoot! */
+.bg-purple-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -15%;
+    width: 65%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.22);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Pola lingkaran besar bercahaya di sisi kanan */
+.bg-purple-main::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 55vw;
+    height: 55vw;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Memastikan konten (navbar, kotak PIN, footer) berada di atas pola background */
+nav, main, footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Kustomisasi tambahan agar tombol navbar mirip dengan gaya Kahoot */
+.navbar-nav .nav-link {
+    font-weight: 600;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease;
+}
+
+.navbar-nav .nav-link:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
